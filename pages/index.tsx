@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,19 +14,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
+      <main className="flex flex-col justify-between items-center p-24 min-h-screen">
+        <div className="flex justify-between text-sm w-full">
+          <p className="relative p-4 bg-callout border border-gray-500 rounded-xl text-white">
             Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
+            <code className="font-bold">pages/index.tsx</code>
           </p>
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex justify-center items-center gap-2"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -119,5 +120,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
