@@ -13,6 +13,12 @@ module.exports = {
       backgroundColor: {
         callout: "rgba(var(--callout-rgb), 0.5)",
       },
+      fontFamily: {
+        mono: "var(--font-mono)"
+      },
+      borderColor: {
+        calloutBorder: "rgba(var(--callout-border-rgb), 0.3)",
+      }
     },
   },
   plugins: [],

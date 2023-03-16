@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "../styles/Home.module.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex flex-col justify-between items-center p-24 min-h-screen">
-        <div className="flex justify-between text-sm w-full">
-          <p className="relative p-4 bg-callout border border-gray-500 rounded-xl text-white">
+      <main className="flex flex-col justify-between items-center p-24 min-h-screen ">
+        <div className="flex justify-between items-center text-sm max-w-[1100px] w-full">
+          <p className="relative p-4 bg-callout box-border border border-calloutBorder rounded-xl font-mono">
             Get started by editing&nbsp;
             <code className="font-bold">pages/index.tsx</code>
           </p>
@@ -31,7 +31,7 @@ export default function Home() {
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
-                className={styles.vercelLogo}
+                className="white:invert dark:invert"
                 width={100}
                 height={24}
                 priority
