@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "../styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +30,7 @@ export default function Home() {
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
-                className="white:invert dark:invert"
+                className="dark:invert"
                 width={100}
                 height={24}
                 priority
@@ -40,16 +39,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.center}>
+        <div className="center">
           <Image
-            className={styles.logo}
+            className="logo"
             src="/next.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
             priority
           />
-          <div className={styles.thirteen}>
+          <div className="thirteen ">
             <Image
               src="/thirteen.svg"
               alt="13"
@@ -60,14 +59,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.grid}>
+        <div className="grid">
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            className="card"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
+            <h2 className={`${inter.className} font-semibold text-2xl`}>
               Docs <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
@@ -77,11 +76,11 @@ export default function Home() {
 
           <a
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            className="card"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
+            <h2 className={`${inter.className} font-semibold text-2xl`}>
               Learn <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
@@ -91,11 +90,11 @@ export default function Home() {
 
           <a
             href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            className="card"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
+            <h2 className={`${inter.className} font-semibold text-2xl`}>
               Templates <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
@@ -105,11 +104,11 @@ export default function Home() {
 
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            className="card"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
+            <h2 className={`${inter.className} font-semibold text-2xl`}>
               Deploy <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
