@@ -14,10 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-between items-center p-24 min-h-screen ">
-        <div className="flex justify-between items-center text-sm max-w-[1100px] w-full">
-          <p className="relative p-4 bg-callout box-border border border-calloutBorder rounded-xl font-mono">
+        <div className="description">
+          <p>
             Get started by editing&nbsp;
-            <code className="font-bold">pages/index.tsx</code>
+            <code>pages/index.tsx</code>
           </p>
           <div>
             <a

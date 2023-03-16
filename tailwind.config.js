@@ -8,15 +8,6 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      backgroundColor: {
-        callout: "rgba(var(--callout-rgb), 0.5)",
-      },
-      borderColor: {
-        calloutBorder: "rgba(var(--callout-border-rgb), 0.3)",
-      },
-    },
-  },
+  theme: {},
   plugins: [],
 };
