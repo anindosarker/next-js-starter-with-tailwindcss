@@ -1,5 +1,5 @@
 import React, { FormEvent, FormEventHandler, useState } from "react";
-
+import { factorData } from "../assets/factorData";
 type Factor = {
   name: string;
   weight: number;
@@ -10,7 +10,7 @@ type Props = {};
 export default function Parameters() {
   //handle form submission and create a new factor array to store the data
 
-  const [factors, setFactors] = useState<Factor[]>([]);
+  const [factors, setFactors] = useState<Factor[]>(factorData);
   const [addFactor, setAddFactor] = useState(false);
   const [name, setName] = useState("");
   const [weight, setWeight] = useState(0);
@@ -32,14 +32,14 @@ export default function Parameters() {
 
   return (
     <div>
-      <h2 className="font-semibold my-5">calculator form</h2>
+      <h2 className="font-semibold my-5">Add factors to get started</h2>
       <form className="flex flex-col p-2 bg-gray-200">
         {factors.map((item, index) => (
-          <div key={index} className="flex space-x-2">
+          <div key={index} className="flex justify-center items-center space-x-2 space-y-2 font-mono">
             <div>Factor: {item.name} </div>
             <div>Weight: {item.weight} </div>
             <label htmlFor="score">Score</label>
-            <input type="number" name="score" id="score" />
+            <input type="number" name="score" id="score" className="rounded"/>
           </div>
         ))}
         {addFactor ? (
@@ -74,12 +74,12 @@ export default function Parameters() {
               setAddFactor(true);
             }}
           >
-            add factor+
+            Add factor
           </button>
         )}
 
         <button type="submit" className=" ">
-          Calculate
+          Calculate Weighted Average
         </button>
       </form>
     </div>
