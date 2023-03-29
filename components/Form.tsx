@@ -1,64 +1,49 @@
 import React, { useState } from "react";
 
-type Factor = {
-  name: string;
-  weight: number;
-  value: number;
-};
-
 export default function Form() {
-  const [factors, setFactors] = useState<Factor[]>([]);
+  const [inputFields, setInputFields] = useState([{ name: "", age: "" }]);
 
-  const addFactor = () => {
-    setFactors([...factors, { name: "", weight: 0, value: 0 }]);
+  const handleFormChange = (index, event) => {
+    let data = [...inputFields];
+    data[index][event.target.name] = event.target.value;
+    setInputFields(data);
   };
 
-  const updateFactor = (index: number, field: string, value: string) => {
-    const newFactors = [...factors];
-    const factor = newFactors[index];
+  const addFields = () => {
+    let newField = { name: "", age: "" };
 
-    if (field === "name") {
-      factor.name = value;
-    } else if (field === "weight") {
-      factor.weight = parseFloat(value);
-    } else if (field === "value") {
-      factor.value = parseFloat(value);
-    }
+    setInputFields([...inputFields, newField]);
+  };
 
-    setFactors(newFactors);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("inputFields", inputFields);
   };
 
   return (
-    <div>
-      <h2 className="font-semibold my-5">Calculator Form</h2>
-      <form className="flex flex-col p-2 bg-gray-200">
-        {factors.map((factor, index) => (
-          <div key={index} className="flex space-x-2">
-            <div>Factor:</div>
-            <input
-              type="text"
-              value={factor.name}
-              onChange={(e) => updateFactor(index, "name", e.target.value)}
-            />
-            <div>Weight:</div>
-            <input
-              type="number"
-              value={factor.weight}
-              onChange={(e) => updateFactor(index, "weight", e.target.value)}
-            />
-            <div>Value:</div>
-            <input
-              type="number"
-              value={factor.value}
-              onChange={(e) => updateFactor(index, "value", e.target.value)}
-            />
-          </div>
-        ))}
-        <button type="button" onClick={addFactor}>
-          Add Factor
-        </button>
-        <button type="submit" className="bg-blue-300 p-2">
-          Calculate
+    <div className="flex mt-20 border">
+      <form onSubmit={handleSubmit}>
+        {inputFields.map((input, index) => {
+          return (
+            <div key={index}>
+              <input
+                name="name"
+                placeholder="Name"
+                value={input.name}
+                onChange={(event) => handleFormChange(index, event)}
+              />
+              <input
+                name="age"
+                placeholder="Age"
+                value={input.age}
+                onChange={(event) => handleFormChange(index, event)}
+              />
+            </div>
+          );
+        })}
+        <button type="button" onClick={addFields}>Add More...</button>
+        <button type="submit" onClick={handleSubmit}>
+          Submit
         </button>
       </form>
     </div>

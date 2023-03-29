@@ -1,5 +1,6 @@
 import React, { FormEvent, FormEventHandler, useState } from "react";
-import { factorData } from "../assets/factorData";
+import factorData from "../assets/factorData";
+import { setFactorDataValue } from "../assets/factorData";
 type Factor = {
   name: string;
   weight: number;
@@ -8,14 +9,13 @@ type Factor = {
 type Props = {};
 
 export default function Parameters() {
-  //handle form submission and create a new factor array to store the data
-
   const [factors, setFactors] = useState<Factor[]>(factorData);
   const [addFactor, setAddFactor] = useState(false);
   const [name, setName] = useState("");
   const [weight, setWeight] = useState(0);
+  const [avg, setAvg] = useState(0);
 
-  const submitHandler = (event: FormEvent) => {
+  const addFactorHandler = (event: FormEvent) => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -30,25 +30,39 @@ export default function Parameters() {
     setAddFactor(false);
   };
 
+  const calculateWeightedAverage = (event: FormEvent) => {
+    event.preventDefault();
+  //log the form data
+    console.log(event.target);
+  
+  };
+
   return (
-    <div>
+    <div className="flex justify-center items-center flex-col ">
       <h2 className="font-semibold my-5">Add factors to get started</h2>
-      <form className="flex flex-col p-2 bg-gray-200">
+      <form
+        className="flex flex-col p-2 bg-gray-100 rounded shadow-lg"
+        onSubmit={calculateWeightedAverage}
+      >
         {factors.map((item, index) => (
-          <div key={index} className="flex justify-center items-center space-x-2 space-y-2 font-mono">
-            <div>Factor: {item.name} </div>
-            <div>Weight: {item.weight} </div>
+          <div
+            key={index}
+            className="flex justify-around items-baseline space-x-2 space-y-2 "
+          >
+            <p>Factor: {item.name} </p>
+            <p>Weight: {item.weight} </p>
             <label htmlFor="score">Score</label>
-            <input type="number" name="score" id="score" className="rounded"/>
+            <input type="number" name="score" id="score" className="rounded" />
           </div>
         ))}
-        {addFactor ? (
-          <div>
+        {addFactor && (
+          <div className="flex  items-baseline justify-center space-x-2 space-y-2">
             <label htmlFor="factor">Name</label>
             <input
               type="text"
               name="factor"
               id="factor"
+              className="rounded"
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -58,29 +72,43 @@ export default function Parameters() {
               type="number"
               name="weight"
               id="weight"
+              className="rounded"
               onChange={(e: any) => {
                 setWeight(e.target.value);
               }}
             />
-            <button type="button" onClick={submitHandler}>
-              Submit+
-            </button>
           </div>
-        ) : (
-          <button
-            type="button"
-            className=""
-            onClick={() => {
-              setAddFactor(true);
-            }}
-          >
-            Add factor
-          </button>
         )}
-
-        <button type="submit" className=" ">
-          Calculate Weighted Average
-        </button>
+        <div className="flex justify-around items-baseline space-y-2">
+          <button
+            type="submit"
+            className="shadow text-sm font-medium
+              max-w-xs text-center rounded-md bg-green-200 p-2 hover:text-white hover:shadow-md hover:bg-green-400"
+          >
+            Calculate Weighted Average
+          </button>
+          {addFactor ? (
+            <button
+              type="button"
+              onClick={addFactorHandler}
+              className="shadow text-sm font-medium
+              max-w-xs text-center rounded-md bg-blue-200 p-2 hover:text-white hover:shadow-md hover:bg-blue-400"
+            >
+              Confirm
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="shadow text-sm font-medium
+              max-w-xs text-center rounded-md bg-blue-200 p-2 hover:text-white hover:shadow-md hover:bg-blue-400"
+              onClick={() => {
+                setAddFactor(true);
+              }}
+            >
+              Add factor
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );

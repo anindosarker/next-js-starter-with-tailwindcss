@@ -1,4 +1,4 @@
-export const factorData = [
+let factorData = [
   {
     id: 1,
     name: "Factor 1",
@@ -14,3 +14,10 @@ export const factorData = [
     weight: 0.2,
   },
 ];
+
+//make a function to set the value of the factor
+export const setFactorDataValue = (newData) => {
+  factorData = newData;
+};
+
+export default factorData;
