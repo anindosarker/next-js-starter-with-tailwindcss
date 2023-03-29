@@ -13,8 +13,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Parameters />
-        <Form />
+        {/* <Parameters />
+        <Form /> */}
+        <Algorithm />
       </div>
     </>
   );

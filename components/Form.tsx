@@ -21,7 +21,7 @@ export default function Form() {
   };
 
   return (
-    <div className="flex mt-20 border">
+    <div className="flex m-20 border">
       <form onSubmit={handleSubmit}>
         {inputFields.map((input, index) => {
           return (
