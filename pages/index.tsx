@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Algorithm from "../components/Algorithm";
+import ScoreCalculator from "../components/ScoreCalculator";
 import Parameters from "../components/Parameters";
 import Form from "../components/Form";
 
@@ -13,9 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        {/* <Parameters />
-        <Form /> */}
-        <Algorithm />
+        <ScoreCalculator />
       </div>
     </>
   );
